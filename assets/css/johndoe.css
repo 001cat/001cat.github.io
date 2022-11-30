@@ -11601,7 +11601,8 @@ pre .code {
 }
 
 .section {
-  padding: 80px 0;
+  /* padding: 80px 0; */
+  padding: 40px 0;
 }
 
 .section.bg-custom-gray {
@@ -11613,7 +11614,8 @@ pre .code {
 }
 
 .about-section .about-card {
-  padding: 60px;
+  /* padding: 60px; */
+  padding: 30px 60px;
   border-right: 1px solid #dee2e6;
 }
 

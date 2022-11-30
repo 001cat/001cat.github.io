@@ -70,7 +70,7 @@
                         <a href="#projects" class="nav-link">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#publishcations" class="nav-link">Publications</a>
+                        <a href="#publications" class="nav-link">Publications</a>
                     </li>
                     <li class="nav-item last-item">
                         <a href="#contact" class="nav-link">Contact</a>
@@ -284,148 +284,130 @@
     <!-- Projects Section -->
     <section class="section bg-custom-gray" id="projects">
         <div class="container">
-            <h1 class="mb-5"><span class="text-danger">My</span> Projects</h1>
-            <div class="portfolio">
-                <div class="filters">
-                    <a href="#" data-filter=".geophysics" class="active">
-                        <h5>Geophysics</h5>
-                    </a>
-                    <a href="#" data-filter=".software">
-                        <h5>Software</h5>
-                    </a>
-                </div>
-                <div class="portfolio-container"> 
-                    <div class="col-md-12 col-sm-6 new geophysics">
-                        <div class="card mb-5">
-                           <div class="card-header has-icon">
-                                <i class="ti-world text-danger" aria-hidden="true"></i>
-                            </div>
-                            <div class="card-body px-4 py-3">
-                                <h5 class="mb-3 card-title text-dark">Seismic shear velocity model in Cascadia.</h5>
-                                <h6 class="subtitle">Start from seismic Rayleight wave measurement, we estimated the shear velocity structure 
-                                    of crust and part of uppermantle in Cascadia region. XXXXXX</h6>
-                                <img src="assets/imgs/web-1.jpg" width="300px">
-                            </div>
-                        </div>
+            <h1 class="mb-5"><span class="text-danger">My</span> Software Projects</h1>
+            <div class="col-md-12 col-sm-6">
+                <div class="card mb-5">
+                   <div class="card-header has-icon">
+                        <i class="ti-music-alt text-danger" aria-hidden="true"></i>
                     </div>
-                    <div class="col-md-12 col-sm-6 new geophysics">
-                        <div class="card mb-5">
-                           <div class="card-header has-icon">
-                                <i class="ti-arrows-horizontal text-danger" aria-hidden="true"></i>
-                            </div>
-                            <div class="card-body px-4 py-3">
-                                <h5 class="mb-3 card-title text-dark">Underwater Acoustic Ranging</h5>
-                                <P class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam commodi provident, dolores reiciendis enim pariatur error optio, tempora ex, nihil nesciunt! In praesentium sunt commodi, unde ipsam ex veritatis laboriosam dolor asperiores suscipit blanditiis, dignissimos quos nesciunt nulla aperiam officia.</P>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-6 new geophysics">
-                        <div class="card mb-5">
-                           <div class="card-header has-icon">
-                                <i class="ti-signal text-danger" aria-hidden="true"></i>
-                            </div>
-                            <div class="card-body px-4 py-3">
-                                <h5 class="mb-3 card-title text-dark">Micro-seismicity detection</h5>
-                                <P class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam commodi provident, dolores reiciendis enim pariatur error optio, tempora ex, nihil nesciunt! In praesentium sunt commodi, unde ipsam ex veritatis laboriosam dolor asperiores suscipit blanditiis, dignissimos quos nesciunt nulla aperiam officia.</P>
-                                <img src="assets/imgs/web-1.jpg" width="300px">
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-12 col-sm-6 software">
-                        <div class="card mb-5">
-                           <div class="card-header has-icon">
-                                <i class="ti-music-alt text-danger" aria-hidden="true"></i>
-                            </div>
-                            <div class="card-body px-4 py-3">
-                                <h5 class="mb-3 card-title text-dark">Audio Identification</h5>
-                                <P class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam commodi provident, dolores reiciendis enim pariatur error optio, tempora ex, nihil nesciunt! In praesentium sunt commodi, unde ipsam ex veritatis laboriosam dolor asperiores suscipit blanditiis, dignissimos quos nesciunt nulla aperiam officia.</P>
-                                <img src="assets/imgs/web-1.jpg" width="300px">
-                                <div class="row mt-5">
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <h3>Upload New:</h3>
-                                        </div>
-                                        <div class="form-group">
-                                            <h3>Shazam! :</h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input class="form-control" id="shazam_add_input" type="file">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control" id="shazam_idty_input" type="file">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <button class="btn btn-primary btn-rounded" id="shazam_add_btn">Upload</button>
-                                        </div>
-                                        <div class="form-group">
-                                            <button class="btn btn-primary btn-rounded" id="shazam_idty_btn">Upload</button>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-12">
-                                        <button class="btn btn-primary btn-rounded" id="shazam_test_btn">Test</button>
-                                        <output type="text" id="display">This is output</output>
-                                        <div id="div_text" style="color:red;"></div>
-                                    </div>
+                    <div class="card-body px-4 py-3">
+                        <h5 class="mb-3 card-title text-primary">Audio Identification</h5>
+                        <P class="subtitle">This audio identify service is built on Google Cloud. This service could tell 
+                            you which song your uploaded recording comes from, by comparing its “fingerprint” with a pre-build 
+                            database. This project is like a simplified version of Shazam but is still a good practice for this 
+                            course.  To realize this service, two basic functions should be offered:
+                            <td><ul>
+                                <li>Adding known music: the server received the music that its meta information is correct, 
+                                    then generate its fingerprint and save in database for future match.</li>
+                                <li>Identify unknown record: the server received the recording that its meta information is 
+                                    unknown, then compare the fingerprint with known music in database, give the matched one.
+                                    The whole service was separate into several parts and deploy using Kubernetes for easy 
+                                    maintenance and scalability.</li>
+                            </ul></td>
+                            </P>
+                        <img src="assets/imgs/AudioIDArch.png" class="center" width=80%>
+                        <h5 class="mb-3 card-title text-primary">Demo:</h5>
+                        <div class="row mt-5">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <h3>Upload New:</h3>
+                                </div>
+                                <div class="form-group">
+                                    <h3>Check Unknown :</h3>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-6 software">
-                        <div class="card mb-5">
-                           <div class="card-header has-icon">
-                                <i class="ti-package text-danger" aria-hidden="true"></i>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control" id="shazam_add_input" type="file">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" id="shazam_idty_input" type="file">
+                                </div>
                             </div>
-                            <div class="card-body px-4 py-3">
-                                <h5 class="mb-3 card-title text-dark">Surface Wave Inversion Package</h5>
-                                <P class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam commodi provident, dolores reiciendis enim pariatur error optio, tempora ex, nihil nesciunt! In praesentium sunt commodi, unde ipsam ex veritatis laboriosam dolor asperiores suscipit blanditiis, dignissimos quos nesciunt nulla aperiam officia.</P>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-rounded" id="shazam_add_btn">Upload</button>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-rounded" id="shazam_idty_btn">Upload</button>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-6 software">
-                        <div class="card mb-5">
-                           <div class="card-header has-icon">
-                                <i class="ti-package text-danger" aria-hidden="true"></i>
-                            </div>
-                            <div class="card-body px-4 py-3">
-                                <h5 class="mb-3 card-title text-dark">OBS Denoising Package</h5>
-                                <P class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam commodi provident, dolores reiciendis enim pariatur error optio, tempora ex, nihil nesciunt! In praesentium sunt commodi, unde ipsam ex veritatis laboriosam dolor asperiores suscipit blanditiis, dignissimos quos nesciunt nulla aperiam officia.</P>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-6 software">
-                        <div class="card mb-5">
-                           <div class="card-header has-icon">
-                                <i class="ti-package text-danger" aria-hidden="true"></i>
-                            </div>
-                            <div class="card-body px-4 py-3">
-                                <h5 class="mb-3 card-title text-dark">Ambient Noise Correlation Package</h5>
-                                <P class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam commodi provident, dolores reiciendis enim pariatur error optio, tempora ex, nihil nesciunt! In praesentium sunt commodi, unde ipsam ex veritatis laboriosam dolor asperiores suscipit blanditiis, dignissimos quos nesciunt nulla aperiam officia.</P>
+                            
+                            <div class="col-md-12">
+                                <!-- <button class="btn btn-primary btn-rounded" id="shazam_test_btn">Test</button> -->
+                                <output type="text" id="display"></output>
+                                <div id="div_text" style="color:red;"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 col-sm-6 software">
-                        <div class="card mb-5">
-                           <div class="card-header has-icon">
-                                <i class="ti-package text-danger" aria-hidden="true"></i>
-                            </div>
-                            <div class="card-body px-4 py-3">
-                                <h5 class="mb-3 card-title text-dark">Matched Filter Technique Package</h5>
-                                <P class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam commodi provident, dolores reiciendis enim pariatur error optio, tempora ex, nihil nesciunt! In praesentium sunt commodi, unde ipsam ex veritatis laboriosam dolor asperiores suscipit blanditiis, dignissimos quos nesciunt nulla aperiam officia.</P>
-                            </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-6">
+                <div class="card mb-5">
+                   <div class="card-header has-icon">
+                        <i class="ti-package text-danger" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body px-4 py-3">
+                        <h4 class="mb-3 card-title text-primary">Seismic Signal Processing Packages</h4>
+                        <div class="row">
+                            <dt class="col-sm-2 h5"><a href="https://github.com/001cat/pySurfInv"><span class="text-warning">pySurfInv</span></a></dt>
+                            <dd class="col-sm-10 h5">Python pacakge to estimate shear velocity structure from surface wave 
+                                speed measurements. </dd>
+                            <dt class="col-sm-2 h5"><a href="https://github.com/001cat/decoupleOBS"><span class="text-warning">decoupleOBS</span></a></dt>
+                            <dd class="col-sm-10 h5">Python pacakge to remove tilt and compliance noise from records of vertical components. </dd>
+                            <dt class="col-sm-2 h5"><a href="https://github.com/Chuanming-Liu/SWT_ML"><span class="text-warning">SWT_ML</span></a></dt>
+                            <dd class="col-sm-10 h5">Machine learning pacakge to estimate shear velocity structure from surface wave 
+                                speed measurements. </dd>
+                            <dt class="col-sm-2 h5"><a href="https://github.com/001cat/MSeed2Cor"><span class="text-warning">MSeed2Cor</span></a></dt>
+                            <dd class="col-sm-10 h5">Calculate ambient noise correlation based on miniseed download from IRIS DMC </dd>
+                            <dt class="col-sm-2 h5"><a href="https://github.com/001cat/MFT"><span class="text-warning">MFT</span></a></dt>
+                            <dd class="col-sm-10 h5">Microseismic detection using Matched Filter Technique(MFT) </dd>
                         </div>
                     </div>
-
-
-                </div> 
-            </div>  
+                </div>
+            </div>
         </div>            
+    </section>
+
+    <!-- My Publications -->
+    <section class="section bg-custom-gray" id="publications">
+        <div class="container">
+            <h1 class="mb-5"><span class="text-danger">My</span> Publications</h1>
+            <div class="col-md-12 col-sm-6 software">
+                <div class="card mb-5">
+                    <div class="card-header has-icon">
+                        <i class="ti-clipboard text-danger" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-body px-4 py-3">
+                        <td><ul>
+                            <li class="col-sm-12 h6"><b>Wu, M.</b>, Wang, H., Zhang, S., Ritzwoller, M. H. (2022). 
+                                Lithosphere and Asthenosphere Structure of the Juan de Fuca and Gorda Plates. In preperation.</li>
+                            <li class="col-sm-12 h6">Yiran Jiang, Jingchong Wen, Yuan Tian, <b>Mengyu Wu</b>, Jieyuan Ning, Yongxiang Shi, et al. (2022).
+                                Surf-Net: A deep-learning-based method for extracting surface-wave dispersion curves. Frontiers in Earth Science. 
+                                (Accepted)</li>
+                            <li class="col-sm-12 h6">Zhang, S., Wang, H., <b>Wu, M.</b>, & Ritzwoller, M. H. (2021). Isotropic and azimuthally anisotropic 
+                                Rayleigh wave dispersion across the Juan de Fuca and Gorda plates and U.S. Cascadia from earthquake 
+                                data and ambient noise two- and three-station interferometry. Geophysical Journal International, 
+                                226(2), 862–883. https://doi.org/10.1093/gji/ggab142</li>
+                            <li class="col-sm-12 h6"><b>Wu, M.</b>, Barmin, M. P., Andrew, R. K., Weichman, P. B., White, A. W., Lavely, E. M., et al. (2019). 
+                                Deep water acoustic range estimation based on an ocean general circulation model: Application to 
+                                PhilSea10 data. The Journal of the Acoustical Society of America, 146(6), 4754–4773. 
+                                https://doi.org/10.1121/1.5138606</li>
+                            <li class="col-sm-12 h6"><b>WU Mengyu</b>, MAO Shujuan, NING Jieyuan, TANG Qijia, JIANG Yiran. Fault Structure Detection by Matched 
+                                Filter Technique[J].Acta Scientiarum Naturalium Universitatis Pekinensis, 2018, 54(4): 730-738.</li>
+                            <li class="col-sm-12 h6">TIAN Yuan, C.P. Legendre, ZHOU Tong, HAN Jian-Gang, <b>WU Meng-Yu</b>, ZHAO Li, NING Jie-Yuan. 2017. 
+                                High resolution anisotropic phase velocity tomography of Northeast China and its implication. 
+                                Chinese Journal of Geophysics (in Chinese), 60(5): 1659-1675, doi: 10.6038/cjg20170505 </li>
+                            <li class="col-sm-12 h6"><b>Mengyu Wu</b>, et al. ”Alteration of the Lithosphere beneath Northeast China Inferred from
+                                Seismic Structure”, Oral Presentation in 2016 AGU Fall Metting, 12-16 Dec 2016, San Francisco,
+                                USA</li>
+                            <li class="col-sm-12 h6"><b>Mengyu Wu</b>, et al. ”Seismicity in Bohai Bay Revealed by Weak Matched Filter Technique”,
+                                Poster in 2014 AGU Fall Meeting, 15-19 Dec 2014, San Francisco, USA</li>
+                        </ul></td>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Contact Section -->
