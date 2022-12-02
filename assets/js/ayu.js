@@ -1,17 +1,19 @@
-var shazam_server = "http://localhost"
+// var shazam_server = "http://localhost"
+// var shazam_server = "http://35.193.50.230"
+var shazam_server = "http://35.223.132.196"
 
-document.getElementById("shazam_test_btn").onclick=function(){
-    var xml=new XMLHttpRequest();
-    xml.open("GET",shazam_server+"/songs");
-    xml.setRequestHeader('content-type','application/json')
-    xml.onreadystatechange=function(){
-        console.log(xml.responseText)
-        if(xml.readyState==4 && xml.status==200){  //判断状态到4了并且返回状态码是200时才做操作
-            document.getElementById("div_text").innerHTML = xml.responseText
-        }
-    };
-    xml.send()
-}
+// document.getElementById("shazam_test_btn").onclick=function(){
+//     var xml=new XMLHttpRequest();
+//     xml.open("GET",shazam_server+"/songs");
+//     xml.setRequestHeader('content-type','application/json')
+//     xml.onreadystatechange=function(){
+//         console.log(xml.responseText)
+//         if(xml.readyState==4 && xml.status==200){  //判断状态到4了并且返回状态码是200时才做操作
+//             document.getElementById("div_text").innerHTML = xml.responseText
+//         }
+//     };
+//     xml.send()
+// }
 
 document.getElementById("shazam_add_btn").onclick=function(){
     var xml=new XMLHttpRequest();
@@ -59,7 +61,7 @@ document.getElementById("shazam_idty_btn").onclick=function(){
             console.log(result)
             if (result['found'] == 'True'){
                 button.innerText = 'Succeeded!'
-                document.getElementById("div_text").innerText = result['song']
+                document.getElementById("div_text").innerText = 'Found! This song is: '+result['song']
             }else if (result['found'] == 'False'){
                 button.innerText = 'Not found'
             }else{
