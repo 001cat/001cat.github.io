@@ -1,6 +1,7 @@
 // var shazam_server = "http://localhost"
 // var shazam_server = "http://35.193.50.230"
-var shazam_server = "http://35.223.132.196"
+// var shazam_server = "http://35.223.132.196"
+var shazam_server = "https://audioid.001cat.us"
 
 // document.getElementById("shazam_test_btn").onclick=function(){
 //     var xml=new XMLHttpRequest();
