@@ -11600,10 +11600,9 @@ pre .code {
   background: #fcbec6;
 }
 
-.section {
-  /* padding: 80px 0; */
+/* .section {
   padding: 40px 0;
-}
+} */
 
 .section.bg-custom-gray {
   background: rgba(242, 244, 247, 0.15);
@@ -11625,7 +11624,7 @@ pre .code {
 
 .contact {
   position: relative;
-  min-height: 700px;
+  /* min-height: 700px; */
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11638,7 +11637,7 @@ pre .code {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 40px 0;
+  /* padding: 40px 0; */
 }
 
 @media (max-width: 991.98px) {
