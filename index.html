@@ -159,7 +159,7 @@
                             <h6 class="title text-danger">(2017 - Present)</h6>
                             <P class="subtitle"><td><ul>
                                        <li>Full-time student in Department of Physics, focusing on earthquake signal analyzing.</li>
-                                       <li>Interested in studying seismic structure of oceanic plates and subduction zone.</li>
+                                       <li>Interested in underwater ranging and the structure of oceanic plates and subduction zones.</li>
                                        <li>Developing software packages to solve problems in efficient and standard approaches.</li>
                             </ul></td></P>
                             <hr>
@@ -169,7 +169,7 @@
                             <P class="subtitle"><td><ul>
                                 <li>Full-time study in Solid Geophysics, focusing on seismology and tectonics.</li>
                                 <li>TA and grader in undergraduate-level C/C++ course</li>
-                                <li>Linux server administrator of our research group</li>
+                                <li>Linux server administrator of Prof. Ning’s research group</li>
                             </ul></td></P>
                             
                             <hr>
@@ -285,78 +285,73 @@
     <section class="section bg-custom-gray" id="projects">
         <div class="container">
             <h1 class="mb-5"><span class="text-danger">My</span> Software Projects</h1>
+
             <div class="col-md-12 col-sm-6">
+
                 <div class="card mb-5">
                    <div class="card-header has-icon">
                         <i class="ti-music-alt text-danger" aria-hidden="true"></i>
                     </div>
                     <div class="card-body px-4 py-3">
-                        <h5 class="mb-3 card-title text-primary">Audio Identification</h5>
-                        <h6 class="subtitle"> This audio identification service, which is built on Google Cloud, enable us to 
-                            determine which song the uploaded recording comes from by comparing its fingerprint with a 
-                            pre-constructed database. This service offers two public apis:
+                        <h5 class="mb-3 card-title text-primary">Audio Identify Service</h5>
+                        <p class="mt-20"> I build an online service on Google Cloud Platform to identify the audio recordings 
+                            made by users and tell them the original song of the recording, similar to Shazam.com. This service offers two public 
+                            RESTful apis:
                             <div class="row py-3">
-                                <dt class="col-sm-3 h6"><span class="text-warning">Add known music into database</span></a></dt>
-                                <dd class="col-sm-9 h6">Uploading the original audio file. 
+                                <dt class="col-sm-3"><span class="text-warning">Adding known music</span></a></dt>
+                                <dd class="col-sm-9">Uploading full/original songs/musics. 
                                     The server will generate the fingerprint and save in database for future match.</dd>
-                                <dt class="col-sm-3 h6"><span class="text-warning">Identify unknown recording</span></a></dt>
-                                <dd class="col-sm-9 h6">Uploading the audio you recorded and want to get identified. The
-                                    server will calculate its fingerprint and compare it with fingerprints in the database. </dd>
+                                <dt class="col-sm-3"><span class="text-warning">Identifying unknown recordings</span></a></dt>
+                                <dd class="col-sm-9">Uploading the audio recording to be identified. The
+                                    server will compare its fingerprint with saved fingerprints in database and return the match song/music. </dd>
                             </div>
-                            The whole service is divided into several parts and deploy using Kubernetes for easy 
-                            maintenance and scalability.
-                        </h6>
+                            The service consists of several parts that running in docker containers and managed by Kubernetes for easy 
+                            maintenance and scalability. User's request will go through load balancer and is send to the REST server 
+                            first. Based on user's request, REST server send the corresponding work request to RabbitMQ, save the relative
+                            large audio file in storage and wait for the result. The worker server will then fetch work request from RabbitMQ,
+                            finish fingerprint computing and matching, save the result in Cassandra database and also sent it back to REST
+                            Server through RabbitMQ. For some private api, REST Server can also query database directly. You can try this server 
+                            through this <a href="audioid-demo.html">demo</a> page.
+                        </p>
                         
                         <img src="assets/imgs/AudioIDArch.png" class="center" width=80%>
-                        <h5 class="mb-3 card-title text-dark">Demo:</h5>
-                        <div class="row">
-                            <div class="col-2">
-                                <h6>Files for this demo:</h6>
-                            </div>
-                            <div class="col-2">
-                                <a href="https://drive.google.com/file/d/1WLeKwrMdeyQDXSJTgw2ZOq1iCVqwFXP-/view?usp=share_link" download="Lady A - Need You Now (iTunes Session).mp3"><h6>Original Music</h6></a>
-                            </div>
-                            <div class="col-2">
-                                <a href="https://drive.google.com/file/d/1la-csYlpUj-aXH_eJ6wbIb_qgSDFVw33/view?usp=share_link" download="Recording-1.mp3"><h6>Recording</h6></a>
-                            </div>
-                        </div>
-                       
-                        
-                        <div class="row mt-3">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <h3>Upload Origin</h3>
-                                </div>
-                                <div class="form-group">
-                                    <h3>Identify Recording</h3>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input class="form-control" id="shazam_add_input" type="file">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" id="shazam_idty_input" type="file">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <button class="btn btn-primary btn-rounded" id="shazam_add_btn">Upload</button>
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary btn-rounded" id="shazam_idty_btn">Identify</button>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-12">
-                                <!-- <button class="btn btn-primary btn-rounded" id="shazam_test_btn">Test</button> -->
-                                <output type="text" id="display"></output>
-                                <div id="div_text" style="color:red;"></div>
-                            </div>
-                        </div>
+
+                        <!-- <a href="audioid-demo.html"><h5 class="mb-3 card-title">Demo</h5></a> -->
                     </div>
                 </div>
+
+                <div class="card mb-5">
+                    <div class="card-header has-icon">
+                         <i class="ti-control-shuffle text-danger" aria-hidden="true"></i>
+                     </div>
+                     <div class="card-body px-4 py-3">
+                         <h5 class="mb-3 card-title text-primary">Seismic surface wave analyzing with Convolution Neural Network (CNN)</h5>
+                            <p class="mt-20"> I participate in building two CNNs about analyzing seismic surface wave recordings: Surf-Net and SWT-ML. Using these
+                                two network together, we can automatically estimate the earth's seismic structure directly from waveform recordings.
+                             <div class="row py-3">
+                                 <dt class="col-sm-1"><span class="text-warning">Surf-Net</span></a></dt>
+                                 <dd class="col-sm-11">This network is to extract surface-wave dispersion information from the waveform cross-correlations (CC) 
+                                    and distance information. We train and test this network using seismic observations collected in Northeast China, 
+                                    with the ratio of datasets of training, validation and test to be roughly 10:1:1. The trained network performed well in both
+                                    synthetic and real observational dataset. See more details in https://doi.org/10.3389/feart.2022.1030326.</dd>
+                                <div class="col-sm-12"><img src="assets/imgs/Surf-Net.png" class="center" width=60%></div>
+                                
+                                
+                                 <dt class="col-sm-1"><a href="https://github.com/Chuanming-Liu/SWT_ML"><span class="text-warning">SWT-ML</span></a></dt>
+                                 <dd class="col-sm-11">This network is to estimate seismic Vs structure from the surface-wave dispersion information. We train and test
+                                    the network using dataset across the Alaska and Cascadia subduction zone, including dispersion information and Vs structure estimated 
+                                    from traditional Markov Chain Monte Carlo method, with the ratio of datasets of training, validation and test to be roughly 8:1:1. 
+                                    Compared with results from traditional method, this network is able to recovery most large-scale structure, which is great considering
+                                    the short time it costs and the simpler configuration of Vs structure.
+                                    </dd>
+                                <img src="assets/imgs/SWT-ML.png" class="center" width=60% height=100%>
+                             </div>
+                            </p>
+                     </div>
+                 </div>
+
             </div>
+
             <div class="col-md-12 col-sm-6">
                 <div class="card mb-5">
                    <div class="card-header has-icon">
@@ -370,9 +365,9 @@
                                 speed measurements. </dd>
                             <dt class="col-sm-2 h5"><a href="https://github.com/001cat/decoupleOBS"><span class="text-warning">decoupleOBS</span></a></dt>
                             <dd class="col-sm-10 h5">Python pacakge to remove tilt and compliance noise from records of vertical components. </dd>
-                            <dt class="col-sm-2 h5"><a href="https://github.com/Chuanming-Liu/SWT_ML"><span class="text-warning">SWT_ML</span></a></dt>
+                            <!-- <dt class="col-sm-2 h5"><a href="https://github.com/Chuanming-Liu/SWT_ML"><span class="text-warning">SWT_ML</span></a></dt>
                             <dd class="col-sm-10 h5">Machine learning pacakge to estimate shear velocity structure from surface wave 
-                                speed measurements. </dd>
+                                speed measurements. </dd> -->
                             <dt class="col-sm-2 h5"><a href="https://github.com/001cat/MSeed2Cor"><span class="text-warning">MSeed2Cor</span></a></dt>
                             <dd class="col-sm-10 h5">Calculate ambient noise correlation based on miniseed download from IRIS DMC </dd>
                             <dt class="col-sm-2 h5"><a href="https://github.com/001cat/MFT"><span class="text-warning">MFT</span></a></dt>
@@ -381,6 +376,7 @@
                     </div>
                 </div>
             </div>
+
         </div>            
     </section>
 
@@ -396,10 +392,8 @@
                     <div class="card-body px-4 py-3">
                         <td><ul>
                             <li class="col-sm-12 h6"><b>Wu, M.</b>, Wang, H., Zhang, S., Ritzwoller, M. H. (2023). 
-                                Lithosphere and Asthenosphere Structure of the Juan de Fuca and Gorda Plates. In preperation.</li>
-                            <li class="col-sm-12 h6">Yiran Jiang, Jingchong Wen, Yuan Tian, <b>Mengyu Wu</b>, Jieyuan Ning, Yongxiang Shi, et al. (2022).
-                                Surf-Net: A deep-learning-based method for extracting surface-wave dispersion curves. Frontiers in Earth Science. 
-                                (Accepted)</li>
+                                Lithosphere and Asthenosphere Structure of the Juan de Fuca and Gorda Plates. Submitted to JGR:Solid Earth.</li>
+                            <li class="col-sm-12 h6">Jiang, Y., Wen, J., Tian, Y., <b>Wu, M.</b>, Ning, J., Shi, Y., et al. (2023). Surf-Net: A deep-learning-based method for extracting surface-wave dispersion curves. Frontiers in Earth Science, 10, 1030326. https://doi.org/10.3389/feart.2022.1030326</li>
                             <li class="col-sm-12 h6">Zhang, S., Wang, H., <b>Wu, M.</b>, & Ritzwoller, M. H. (2021). Isotropic and azimuthally anisotropic 
                                 Rayleigh wave dispersion across the Juan de Fuca and Gorda plates and U.S. Cascadia from earthquake 
                                 data and ambient noise two- and three-station interferometry. Geophysical Journal International, 
@@ -408,15 +402,17 @@
                                 Deep water acoustic range estimation based on an ocean general circulation model: Application to 
                                 PhilSea10 data. The Journal of the Acoustical Society of America, 146(6), 4754–4773. 
                                 https://doi.org/10.1121/1.5138606</li>
-                            <li class="col-sm-12 h6"><b>WU Mengyu</b>, MAO Shujuan, NING Jieyuan, TANG Qijia, JIANG Yiran. Fault Structure Detection by Matched 
-                                Filter Technique[J].Acta Scientiarum Naturalium Universitatis Pekinensis, 2018, 54(4): 730-738.</li>
-                            <li class="col-sm-12 h6">TIAN Yuan, C.P. Legendre, ZHOU Tong, HAN Jian-Gang, <b>WU Meng-Yu</b>, ZHAO Li, NING Jie-Yuan. 2017. 
+
+                            <li class="col-sm-12 h6"><b>Wu, M.</b>, Mao, S., Ning, J., Tang, Q. and Jiang, Y. (2018) Fault Structure Detection by Matched 
+                                Filter Technique[J].Acta Scientiarum Naturalium Universitatis Pekinensis, 54(4), 730-738.</li>
+
+                            <li class="col-sm-12 h6">Tian, Y., Legendre, C. P., Zhou, T., Han, J., <b>Wu, M.</b>, Zhao, L., Ning, J. (2017) 
                                 High resolution anisotropic phase velocity tomography of Northeast China and its implication. 
-                                Chinese Journal of Geophysics (in Chinese), 60(5): 1659-1675, doi: 10.6038/cjg20170505 </li>
-                            <li class="col-sm-12 h6"><b>Mengyu Wu</b>, et al. ”Alteration of the Lithosphere beneath Northeast China Inferred from
+                                Chinese Journal of Geophysics (in Chinese), 60(5), 1659-1675, https://doi.org/10.6038/cjg20170505 </li>
+                            <li class="col-sm-12 h6"><b>Wu, M.</b>, et al. ”Alteration of the Lithosphere beneath Northeast China Inferred from
                                 Seismic Structure”, Oral Presentation in 2016 AGU Fall Metting, 12-16 Dec 2016, San Francisco,
                                 USA</li>
-                            <li class="col-sm-12 h6"><b>Mengyu Wu</b>, et al. ”Seismicity in Bohai Bay Revealed by Weak Matched Filter Technique”,
+                            <li class="col-sm-12 h6"><b>Wu, M.</b>, et al. ”Seismicity in Bohai Bay Revealed by Weak Matched Filter Technique”,
                                 Poster in 2014 AGU Fall Meeting, 15-19 Dec 2014, San Francisco, USA</li>
                         </ul></td>
                     </div>
